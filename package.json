@@ -1,0 +1,30 @@
+{
+  "name": "hobbi-api",
+  "version": "0.0.1",
+  "description": "hobbi api",
+  "engines": {
+    "node": "4.4.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anzileiro/hobbi-api.git"
+  },
+  "author": "Anderson L. Ribeiro Anzileiro <anderson.anzileiro@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anzileiro/hobbi-api/issues"
+  },
+  "homepage": "https://github.com/anzileiro/hobbi-api#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "1.6.2",
+    "express": "4.14.0",
+    "md5": "2.2.1",
+    "mongoose": "4.6.2"
+  }
+}
