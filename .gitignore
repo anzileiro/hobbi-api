@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# VS Code configuration
+.vscode
+typings
+.eslintrc.json
+jsconfig.json
