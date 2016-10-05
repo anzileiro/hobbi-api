@@ -1,19 +1,25 @@
 'use strict'
 
-const   Express       = require('express')
-,       Compression   = require('compression')
-,       Parser        = require('body-parser')
-,       Server        = require('./configs/server')
-,       App           = Express()
+const   Express           = require('express')
+,       Compression       = require('compression')
+,       Parser            = require('body-parser')
+,       Mongoose          = require('mongoose')
+,       Bluebird          = require('bluebird')
+,       Server            = require('./utils/server')
+,       Database          = require('./utils/database')
+,       UserController    = require('./controllers/user')
+,       UserRoute         = require('./routes/user')
+,       App               = Express()
+
+Mongoose.Promise = Bluebird
+Mongoose.connect(Database.url)
 
 App.use(Compression())
 App.use(Parser.json())
 App.use(Parser.urlencoded({ extended: false }))
 
-App.get('/app', (_request, _response) => {
-  _response.status(200).json({
-    status: 'working'
-  })
+UserRoute.forEach((_) => {
+  App[_.method]([_.path], [_.handler])
 })
 
 App.listen(Server.port, () => {
